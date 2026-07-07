@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wedding of Nurul & Bagas</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -193,8 +191,8 @@
         .main-header {
             padding: 60px 20px 40px;
             text-align: center;
-			position: relative;
-			overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
 
         .main-header h2 {
@@ -218,66 +216,70 @@
             margin-top: 20px;
             font-weight: 500;
         }
-		
-		/* --- Styling untuk Frame Sudut Main Header --- */
+        
+        /* --- Styling untuk Frame Sudut Main Header --- */
         .head-frame {
             position: absolute;
             width: 55%;
             max-width: 240px;
             pointer-events: none;
-			z-index: 1
+            z-index: 1;
+            mix-blend-mode: multiply;
         }
 
         .head-frame-left {
             top: 0;
-			left: 0;
+            left: 0;
         }
 
         .head-frame-right {
-			top: 0;
-			right: 0;
+            top: 0;
+            right: 0;
             transform: scaleX(-1); 
         }
-		
-		.head-frame-bottom {
+        
+        .head-frame-bottom {
             bottom: 0;
             right: 0;
         }
 
         /* ================= Kutipan Ayat ================= */
         .quran-section {
-			padding: 0px 20px 40px;
+            padding: 0px 20px 40px;
             position: relative;
-			overflow: hidden;
+            /* overflow: hidden dihapus agar pita bisa melayang ke luar (margin sage) */
         }
-		
-		.quran-box {
+        
+        .quran-box {
             background: rgba(255, 255, 255, 0.4);
-            margin-top: 60px;
-			margin-left: 30px;
-            padding: 30px 20px 40px;
+            margin: 40px 10px;
+            padding: 40px 20px 30px;
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.8);
             text-align: center;
+            position: relative;
+            /* overflow: hidden dihapus agar pita bisa keluar box */
         }
-		
-		.quran-frame {
+        
+        .quran-frame {
             position: absolute;
-            width: 55%;
-            max-width: 240px;
+            width: 45%;
+            max-width: 160px;
             pointer-events: none;
-			z-index: 1
-			top: 0;
-            left: 0;
-			transform: scale(-1);
-			z-index: 1
+            z-index: 3;
+            top: -35px;
+            left: -20px;
+            transform: scale(-1);
+            mix-blend-mode: multiply;
         }
-		
+        
         .arabic-text {
             font-size: 1.4rem;
             color: var(--primary-green);
             margin-bottom: 15px;
             font-family: 'Traditional Arabic', serif;
+            position: relative;
+            z-index: 2;
         }
 
         .quran-text {
@@ -285,6 +287,8 @@
             color: var(--dark-text);
             margin-bottom: 15px;
             font-style: italic;
+            position: relative;
+            z-index: 2;
         }
 
         .quran-surah {
@@ -292,16 +296,12 @@
             font-size: 0.9rem;
             color: var(--primary-green);
             font-family: 'Montserrat', sans-serif;
-        }
-		
-        /* ================= Mempelai Section ================= */
-        .mempelai-frame {
             position: relative;
-			max-width: 400px;
+            z-index: 2;
         }
-		
-		
-		.couple-box {
+        
+        /* ================= Mempelai Section ================= */
+        .couple-box {
             margin: 30px 0;
             display: flex;
             flex-direction: column;
@@ -656,7 +656,6 @@
 
     <div class="app-container">
         
-        <!-- COVER SCREEN (Overlay Pembuka) -->
         <div id="cover-screen">
             <div class="cover-content">
                 <div class="cover-title script-font">The Wedding Of</div>
@@ -665,7 +664,6 @@
 
                 <p style="font-size: 0.85rem; color: #ddd; font-family: 'Montserrat', sans-serif;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
                 
-                <!-- BAGIAN VARIABEL NAMA TAMU DINAMIS DARI URL -->
                 <div class="guest-box">
                     <div class="guest-label">Tamu Kehormatan</div>
                     <div id="nama-tamu">Tamu Undangan</div>
@@ -681,7 +679,6 @@
             </div>
         </div>
 
-        <!-- AUDIO BACKGROUND -->
         <audio id="bg-music" loop>
             <source src="raisa.mp3" type="audio/mpeg">
         </audio>
@@ -689,37 +686,30 @@
             <i class="fa-solid fa-compact-disc spinning" id="music-icon"></i>
         </div>
 
-        <!-- SECTION 1: HEADER UTAMA -->
         <header class="main-header">
-			<img src="frame1.png" class="head-frame head-frame-left">
+            <img src="frame1.png" class="head-frame head-frame-left">
             <img src="frame1.png" class="head-frame head-frame-right">
-			<img src="frame2.png" class="head-frame head-frame-bottom">
-            <h2 class="script-font">The Wedding Of</h2>
-            <h1 class="script-font">Nurul<br><span style="font-size: 3rem;">&</span><br>Bagas</h1>
-            <div class="date-text">04 Oktober 2026</div>
-            <div class="floral-accent">✿ ❀ ✿</div>
-			 
+            <img src="frame2.png" class="head-frame head-frame-bottom">
+            <h2 class="script-font" style="position: relative; z-index: 2;">The Wedding Of</h2>
+            <h1 class="script-font" style="position: relative; z-index: 2;">Nurul<br><span style="font-size: 3rem;">&</span><br>Bagas</h1>
+            <div class="date-text" style="position: relative; z-index: 2;">04 Oktober 2026</div>
+            <div class="floral-accent" style="position: relative; z-index: 2;">✿ ❀ ✿</div>
         </header>
 
-        <!-- SECTION 2: KUTIPAN AYAT -->
-		
         <section class="quran-section">
-			<img src="frame2.png" class="quran-frame">
-			<div class="quran-box">
-				<div class="arabic-text">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ</div>
-				<p class="quran-text">
-					"Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya, Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
-				</p>
-				<div class="quran-surah">QS Ar-Rum : 21</div>
-			</div>
+            <div class="quran-box">
+                <img src="frame2.png" class="quran-frame">
+                <div class="arabic-text">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ</div>
+                <p class="quran-text">
+                    "Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya, Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+                </p>
+                <div class="quran-surah">QS Ar-Rum : 21</div>
+            </div>
         </section>
 
-        <!-- SECTION 3: MEMPELAI -->
         <section id="mempelai">
-            <img src="frame3.png" class="mempelai-frame">
-			<h2 class="section-heading script-font">Mempelai</h2>
+            <h2 class="section-heading script-font">Mempelai</h2>
             
-            <!-- Mempelai Wanita -->
             <div class="couple-box">
                 <div class="photo-frame">
                     <img src="pasfotonurul.JPG?auto=format&fit=crop&w=300&q=80" alt="Nurul Fazriah">
@@ -731,7 +721,6 @@
 
             <div style="font-size: 2rem; color: var(--accent-pink); margin: 10px 0;">❀</div>
 
-            <!-- Mempelai Pria -->
             <div class="couple-box">
                 <div class="photo-frame">
                     <img src="pasfotobagas.JPG?auto=format&fit=crop&w=300&q=80" alt="Bagas Setia Aji">
@@ -742,7 +731,6 @@
             </div>
         </section>
 
-        <!-- SECTION 4: COUNTDOWN -->
         <section id="countdown">
             <div class="countdown-title">Menuju Hari Bahagia Kami :</div>
             <div class="countdown-date">04 . Oct . 2026</div>
@@ -766,11 +754,9 @@
                 </div>
             </div>
 
-            <!-- Ilustrasi Pasangan -->
             <img src="couple.png?auto=format&fit=crop&w=400&q=80" alt="Couple Illustration" class="couple-illustration" style="border-radius: 20px;">
         </section>
 
-        <!-- SECTION 5: WAKTU & LOKASI ACARA -->
         <section id="acara">
             <div class="event-card">
                 <h3 class="script-font">Waktu Acara</h3>
@@ -802,7 +788,6 @@
             </div>
         </section>
 
-        <!-- SECTION 6: GALERI FOTO (POLAROID LAYOUT) -->
         <section id="gallery">
             <h2 class="section-heading script-font">Our Gallery</h2>
             
@@ -822,7 +807,6 @@
             </div>
         </section>
 
-        <!-- SECTION 7: WEDDING GIFT -->
         <section id="gift">
             <h2 class="section-heading script-font">Wedding Gift</h2>
             
@@ -832,7 +816,6 @@
                     Tanpa mengurangi rasa hormat kami, bagi Anda yang ingin memberikan hadiah online untuk kami, dapat mengirimkannya melalui:
                 </p>
 
-                <!-- Amplop Digital -->
                 <div class="rekening-card">
                     <div class="rek-info">
                         <h4>BANK BCA</h4>
@@ -853,13 +836,11 @@
             </div>
         </section>
 
-        <!-- SECTION 8: CLOSING -->
         <section class="closing-section">
             <p class="closing-text">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
             </p>
 
-            <!-- Foto Penutup -->
             <div class="closing-photo">
                 <img src="closing.JPG?auto=format&fit=crop&w=400&q=80" alt="Closing Photo">
             </div>
@@ -870,7 +851,6 @@
 
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
         // 1. FITUR UTAMA: MENGAMBIL VARIABEL NAMA DARI URL (?nama=...)
         function loadGuestName() {
